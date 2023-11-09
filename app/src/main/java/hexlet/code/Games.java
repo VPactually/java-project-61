@@ -9,7 +9,7 @@ public class Games {
         String correctAnswer = "";
         int numbers = 0;
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        for (int i = 0; i < 3;) {
+        for (int i = 0; i < 3; ) {
             numbers = random.nextInt(0, 100);
             System.out.println("Question: " + numbers + "\nYour answer: ");
             answer = Scanner.getString();
@@ -18,10 +18,9 @@ public class Games {
                 System.out.println("Correct!");
                 i++;
             } else {
-                return  "'" + answer + "' is wrong answer ;(. " + "Correct answer was '" + correctAnswer + "'";
+                return "'" + answer + "' is wrong answer ;(. " + "Correct answer was '" + correctAnswer + "'";
             }
         }
-
         return "Congratulations, " + username + "!";
     }
 }
