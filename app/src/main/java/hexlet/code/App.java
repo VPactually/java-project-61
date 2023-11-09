@@ -17,7 +17,6 @@ public class App {
                 System.out.println(Games.gameEven(username));
             }
             default -> {
-                break;
             }
         }
     }

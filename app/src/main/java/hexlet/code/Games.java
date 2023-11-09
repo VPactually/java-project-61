@@ -21,6 +21,7 @@ public class Games {
                 return  "'" + answer + "' is wrong answer ;(. " + "Correct answer was '" + correctAnswer + "'";
             }
         }
+
         return "Congratulations, " + username + "!";
     }
 }

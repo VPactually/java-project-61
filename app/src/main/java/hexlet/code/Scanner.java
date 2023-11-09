@@ -9,6 +9,7 @@ public class Scanner {
         } else {
             return 0;
         }
+        scanner.close();
         return number;
     }
 
@@ -20,6 +21,7 @@ public class Scanner {
         } else {
             return string;
         }
+        scanner.close();
         return string;
     }
 }
