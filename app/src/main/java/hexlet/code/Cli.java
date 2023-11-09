@@ -2,16 +2,26 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Cli {
-    public static void greeting() {
+
+    public static int getInt(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("May I have your name? ");
-        if (scanner.hasNextLine()) {
-            String username = scanner.nextLine();
-            System.out.println("Hello, " + username + "!");
+        int number=0;
+        if (scanner.hasNextInt()) {
+            number = scanner.nextInt();
         } else {
-            System.out.println("Invalid input.");
+            return 0;
         }
-        scanner.close();
+        return number;
     }
 
+    public static String getString(){
+        Scanner scanner = new Scanner(System.in);
+        String string = "";
+        if (scanner.hasNextLine()) {
+            string = scanner.nextLine();
+        } else {
+            return string;
+        }
+        return string;
+    }
 }
