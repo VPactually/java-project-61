@@ -10,20 +10,15 @@ public class App {
                 2 - Even
                 0 - Exit
                 Your choice:\s""");
-        System.out.println("\n");
         switch (Scanner.getInt()) {
-            case 1 -> {
-                username = Cli.greeting();
-            }
+            case 1 -> Cli.greeting();
             case 2 -> {
                 username = Cli.greeting();
-                if (Games.gameEven()) {
-                    System.out.println("Congratulation, " + username + "!");
-                } else {
-                    System.out.println("Let's try again, " + username + "!");
-                }
+                System.out.println(Games.gameEven(username));
             }
-            default -> System.out.println();
+            default -> {
+                break;
+            }
         }
     }
 }

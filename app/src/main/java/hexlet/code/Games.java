@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Random;
 
 public class Games {
-    public static boolean gameEven() {
+    public static String gameEven(String username) {
         Random random = new Random();
         String answer = "";
         String correctAnswer = "";
@@ -18,11 +18,9 @@ public class Games {
                 System.out.println("Correct!");
                 i++;
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. "
-                        + "Correct answer was '" + correctAnswer + "'");
-                return false;
+                return  "'" + answer + "' is wrong answer ;(. " + "Correct answer was '" + correctAnswer + "'";
             }
         }
-        return true;
+        return "Congratulations, " + username + "!";
     }
 }
