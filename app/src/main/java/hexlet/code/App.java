@@ -2,7 +2,6 @@ package hexlet.code;
 
 public class App {
     public static void main(String[] args) {
-        int choice = 0;
         System.out.print("""
                 Please enter the game number and press Enter.
                 1 - Greet
@@ -10,8 +9,11 @@ public class App {
                 0 - Exit
                 Your choice:\s""");
         switch (Scanner.getInt()) {
+            case 1 -> {
+                Games.greet();
+            }
             case 2 -> {
-                System.out.println(Games.gameEven());
+                Games.gameEven();
             }
             default -> {
             }
