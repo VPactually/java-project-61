@@ -11,26 +11,24 @@ public class Games {
         System.out.print("May I have your name? ");
         if (scanner.hasNextLine()) {
             username = scanner.nextLine();
-            System.out.println("Hello, " + username + "!");
+            System.out.println("Hello, " + username + "!\n");
             return username;
         } else {
             return"Invalid input.";
         }
     }
 
+
     public static void gameEven() {
         Random random = new Random();
-        String answer;
-        String correctAnswer;
-        String username;
+        String answer,correctAnswer, username;
         int numbers, k=3;
-        Scanner scanner = new Scanner(System.in);
         username = greet();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         for (int i = 0; i < 3; ) {
             numbers = random.nextInt(0, 100);
             System.out.println("Question: " + numbers + "\nYour answer: ");
-            answer = hexlet.code.Scanner.getString();
+            answer = userAnswers.getString();
             correctAnswer = numbers % 2 == 0 ? "yes" : "no";
             if (answer.equals(correctAnswer)) {
                 System.out.println("Correct!");

@@ -8,13 +8,10 @@ public class App {
                 2 - Even
                 0 - Exit
                 Your choice:\s""");
-        switch (Scanner.getInt()) {
-            case 1 -> {
-                Games.greet();
-            }
-            case 2 -> {
-                Games.gameEven();
-            }
+
+        switch (userAnswers.getInt()) {
+            case 1 -> Games.greet();
+            case 2 -> Games.gameEven();
             default -> {
             }
         }

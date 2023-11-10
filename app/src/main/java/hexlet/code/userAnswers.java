@@ -1,6 +1,6 @@
 package hexlet.code;
 
-public class Scanner {
+public class userAnswers {
     public static int getInt() {
         java.util.Scanner scanner = new java.util.Scanner(System.in);
         int number = 0;
