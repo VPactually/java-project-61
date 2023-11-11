@@ -33,7 +33,7 @@ public class Games {
         while (counter < 3) {
             number1 = random.nextInt(0, 100);
             number2 = random.nextInt(0, 100);
-            operator = operators[random.nextInt(2)];
+            operator = operators[random.nextInt(3)];
             System.out.print("Question: ");
             switch (operator) {
                 case "+" -> {
@@ -51,7 +51,6 @@ public class Games {
             }
             answer = scanner.nextInt();
             counter += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
-            System.out.println("Counter = " + counter);
         }
         System.out.println(counter == 3 ? Engine.getIfWin(username) : Engine.getIfLose(answer, correctAnswer, username));
     }
