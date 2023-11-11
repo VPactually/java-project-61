@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Games {
+
     public static String greet() {
         String username;
         Scanner scanner = new Scanner(System.in);
@@ -14,33 +15,26 @@ public class Games {
             System.out.println("Hello, " + username + "!\n");
             return username;
         } else {
-            return"Invalid input.";
+            return "Invalid input.";
         }
     }
 
 
     public static void gameEven() {
         Random random = new Random();
-        String answer,correctAnswer, username;
-        int numbers, k=3;
-        username = greet();
+        Engine engine = new Engine();
+        Scanner scanner = new Scanner(System.in);
+        int number, counter = 0;
+        engine.setUsername(greet());
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        for (int i = 0; i < 3; ) {
-            numbers = random.nextInt(0, 100);
-            System.out.println("Question: " + numbers + "\nYour answer: ");
-            answer = userAnswers.getString();
-            correctAnswer = numbers % 2 == 0 ? "yes" : "no";
-            if (answer.equals(correctAnswer)) {
-                System.out.println("Correct!");
-                i++; k--;
-            } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. " + "Correct answer was '" + correctAnswer + "'");
-                System.out.println("Let's try again, " + username + "!");
-                i+=3;
-            }
+        while (counter < 3) {
+            number = random.nextInt(0, 100);
+            System.out.println("Question: " + number + "\nYour answer: ");
+            engine.setAnswer(scanner.nextLine());
+            engine.setCorrectAnswer(number % 2 == 0 ? "yes" : "no");
+            counter += engine.isCorrect() ? 1 : 4;
+
         }
-        if (k == 0){
-            System.out.println("Congratulations, " + username + "!");
-        }
+        System.out.println(counter > 3 ? engine.getIfLose() : engine.getIfWin());
     }
 }
