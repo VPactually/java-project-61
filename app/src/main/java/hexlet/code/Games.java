@@ -5,36 +5,54 @@ import java.util.Scanner;
 
 public class Games {
 
-    public static String greet() {
-        String username;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("\nWelcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        if (scanner.hasNextLine()) {
-            username = scanner.nextLine();
-            System.out.println("Hello, " + username + "!\n");
-            return username;
-        } else {
-            return "Invalid input.";
-        }
-    }
-
-
     public static void gameEven() {
         Random random = new Random();
-        Engine engine = new Engine();
         Scanner scanner = new Scanner(System.in);
+        String answer = null, correctAnswer = null;
         int number, counter = 0;
-        engine.setUsername(greet());
+        String username = Engine.greet();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         while (counter < 3) {
             number = random.nextInt(0, 100);
-            System.out.println("Question: " + number + "\nYour answer: ");
-            engine.setAnswer(scanner.nextLine());
-            engine.setCorrectAnswer(number % 2 == 0 ? "yes" : "no");
-            counter += engine.isCorrect() ? 1 : 4;
-
+            System.out.print("Question: " + number + "\nYour answer: ");
+            answer = scanner.nextLine();
+            correctAnswer = number % 2 == 0 ? "yes" : "no";
+            counter += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
         }
-        System.out.println(counter > 3 ? engine.getIfLose() : engine.getIfWin());
+        System.out.println(counter > 3 ? Engine.getIfLose(answer, correctAnswer, username) : Engine.getIfWin(username));
+    }
+
+    public static void gameCalc() {
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        int number1, number2, counter = 0, answer = 0, correctAnswer = 0;
+        String[] operators = {"+", "-", "*"};
+        String operator;
+        String username = Engine.greet();
+        System.out.println("What is the result of the expression?");
+        while (counter < 3) {
+            number1 = random.nextInt(0, 100);
+            number2 = random.nextInt(0, 100);
+            operator = operators[random.nextInt(2)];
+            System.out.print("Question: ");
+            switch (operator) {
+                case "+" -> {
+                    System.out.print(number1 + "+" + number2 + "\nYour answer: ");
+                    correctAnswer = number1 + number2;
+                }
+                case "-" -> {
+                    System.out.print(number1 + "-" + number2 + "\nYour answer: ");
+                    correctAnswer = number1 - number2;
+                }
+                case "*" -> {
+                    System.out.print(number1 + "*" + number2 + "\nYour answer: ");
+                    correctAnswer = number1 * number2;
+                }
+            }
+            answer = scanner.nextInt();
+            counter += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
+            System.out.println("Counter = " + counter);
+        }
+        System.out.println(counter == 3 ? Engine.getIfWin(username) : Engine.getIfLose(answer, correctAnswer, username));
     }
 }

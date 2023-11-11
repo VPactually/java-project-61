@@ -3,20 +3,53 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    private Scanner scanner = new Scanner(System.in);
-    private String answer;
-    private String correctAnswer;
-    private String username;
-
-    public void setUsername(String username) {
-        this.username = username;
+    public static String greet() {
+        String username;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nWelcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        if (scanner.hasNextLine()) {
+            username = scanner.nextLine();
+            System.out.println("Hello, " + username + "!\n");
+            return username;
+        } else {
+            return "Invalid input.";
+        }
     }
 
-    public String getUsername() {
-        return this.username;
+    public static boolean isCorrectAnswer(String answer, String correctAnswer) {
+        return answer.equalsIgnoreCase(correctAnswer);
     }
 
-    public int getChoice() {
+    public static boolean isCorrectAnswer(int answer, int correctAnswer) {
+        return answer == correctAnswer;
+    }
+
+    public static String getIfLose(String answer, String correctAnswer, String username) {
+        return "'" + answer + "' is wrong answer ;(. " + "Correct answer was '"
+                + correctAnswer + "'." + "\nLet's try again, " + username + "!";
+    }
+
+    public static String getIfLose(int answer, int correctAnswer, String username) {
+        return "'" + answer + "' is wrong answer ;(. " + "Correct answer was '"
+                + correctAnswer + "'." + "\nLet's try again, " + username + "!";
+    }
+
+    public static String getIfWin(String username) {
+        return "Congratulations, " + username + "!";
+    }
+
+    public static int result(boolean result) {
+        if (result) {
+            System.out.println("Correct!");
+            return 1;
+        } else {
+            return 5;
+        }
+    }
+
+    public static int getChoice() {
+        Scanner scanner = new Scanner(System.in);
         if (scanner.hasNextInt()) {
             return scanner.nextInt();
         } else {
@@ -24,33 +57,5 @@ public class Engine {
         }
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
-
-    public String getAnswer() {
-        return this.answer;
-    }
-
-    public void setCorrectAnswer(String correctAnswer) {
-        this.correctAnswer = correctAnswer;
-    }
-
-    public String getCorrectAnswer() {
-        return correctAnswer;
-    }
-
-    public boolean isCorrect() {
-        return answer.equalsIgnoreCase(correctAnswer);
-    }
-
-    public String getIfWin() {
-        return "Congratulations, " + this.getUsername() + "!";
-    }
-
-    public String getIfLose() {
-        return "'" + getAnswer() + "' is wrong answer ;(. " + "Correct answer was '"
-                + this.getCorrectAnswer() + "'." + "\nLet's try again, " + this.getUsername() + "!";
-    }
 
 }
