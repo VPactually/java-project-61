@@ -7,6 +7,7 @@ public class App {
                 1 - Greet
                 2 - Even
                 3 - Calc
+                4 - GCD
                 0 - Exit
                 Your choice:\s""");
 
@@ -14,6 +15,7 @@ public class App {
             case 1 -> Engine.greet();
             case 2 -> Games.gameEven();
             case 3 -> Games.gameCalc();
+            case 4 -> Games.gameGcd();
             default -> {
             }
         }

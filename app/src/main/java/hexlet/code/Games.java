@@ -54,4 +54,23 @@ public class Games {
         }
         System.out.println(counter == 3 ? Engine.getIfWin(username) : Engine.getIfLose(answer, correctAnswer, username));
     }
+
+    public static void gameGcd() {
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        int number1, number2, counter = 0, answer = 0, correctAnswer = 0;
+        String username = Engine.greet();
+        System.out.println("Find the greatest common divisor of given numbers.");
+        while (counter < 3) {
+            number1 = random.nextInt(0, 101);
+            number2 = random.nextInt(0, 101);
+            System.out.println("Question: " + number1 + " " + number2 + "\nYour answer: ");
+            answer = scanner.nextInt();
+            correctAnswer = Engine.getGcd(Math.max(number1, number2), Math.min(number1, number2));
+            counter += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
+        }
+        System.out.println(counter == 3 ? Engine.getIfWin(username) : Engine.getIfLose(answer, correctAnswer, username));
+    }
+
+
 }

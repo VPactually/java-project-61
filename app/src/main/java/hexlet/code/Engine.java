@@ -57,5 +57,10 @@ public class Engine {
         }
     }
 
+    public static int getGcd(int a, int b) {
+        int r = a % b;
+        return r == 0 ? b : getGcd(b, r);
+    }
+
 
 }
