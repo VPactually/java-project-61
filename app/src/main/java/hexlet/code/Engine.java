@@ -40,20 +40,23 @@ public class Engine {
     }
 
     public static int result(boolean result) {
+        int win = 1;
+        int lose = 5;
         if (result) {
             System.out.println("Correct!");
-            return 1;
+            return win;
         } else {
-            return 5;
+            return lose;
         }
     }
 
     public static int getChoice() {
+        int nothing = 0;
         Scanner scanner = new Scanner(System.in);
         if (scanner.hasNextInt()) {
             return scanner.nextInt();
         } else {
-            return 0;
+            return nothing;
         }
     }
 
