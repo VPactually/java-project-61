@@ -13,18 +13,18 @@ public class Games {
         String answer = null;
         String correctAnswer = null;
         int number;
-        int count = 0;
-        int rounds = 3;
+        int cnt = 0;
+        int rnd = 3;
         String username = Engine.greet();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        while (count < rounds) {
+        while (cnt < rnd) {
             number = random.nextInt(0, 100);
             System.out.print("Question: " + number + "\nYour answer: ");
             answer = scanner.nextLine();
             correctAnswer = number % 2 == 0 ? "yes" : "no";
-            count += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
+            cnt += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
         }
-        System.out.println(count == rounds ? Engine.getIfLose(answer, correctAnswer, username) : Engine.getIfWin(username));
+        System.out.println(cnt == rnd ? Engine.getIfLose(answer, correctAnswer, username) : Engine.getIfWin(username));
     }
 
     public static void gameCalc() {
@@ -32,15 +32,15 @@ public class Games {
         Scanner scanner = new Scanner(System.in);
         int number1;
         int number2;
-        int count = 0;
+        int cnt = 0;
         int answer = 0;
         int correctAnswer = 0;
-        int rounds = 3;
+        int rnd = 3;
         String[] operators = {"+", "-", "*"};
         String operator;
         String username = Engine.greet();
         System.out.println("What is the result of the expression?");
-        while (count < rounds) {
+        while (cnt < rnd) {
             number1 = random.nextInt(0, 100);
             number2 = random.nextInt(0, 100);
             operator = operators[random.nextInt(3)];
@@ -63,9 +63,9 @@ public class Games {
                 }
             }
             answer = scanner.nextInt();
-            count += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
+            cnt += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
         }
-        System.out.println(count == rounds ? Engine.getIfWin(username) : Engine.getIfLose(answer, correctAnswer, username));
+        System.out.println(cnt == rnd ? Engine.getIfWin(username) : Engine.getIfLose(answer, correctAnswer, username));
     }
 
     public static void gameGcd() {
@@ -73,21 +73,21 @@ public class Games {
         Scanner scanner = new Scanner(System.in);
         int number1;
         int number2;
-        int count = 0;
+        int cnt = 0;
         int answer = 0;
         int correctAnswer = 0;
-        int rounds = 3;
+        int rnd = 3;
         String username = Engine.greet();
         System.out.println("Find the greatest common divisor of given numbers.");
-        while (count < rounds) {
+        while (cnt < rnd) {
             number1 = random.nextInt(0, 101);
             number2 = random.nextInt(0, 101);
             System.out.println("Question: " + number1 + " " + number2 + "\nYour answer: ");
             answer = scanner.nextInt();
             correctAnswer = Engine.getGcd(Math.max(number1, number2), Math.min(number1, number2));
-            count += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
+            cnt += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
         }
-        System.out.println(count == rounds ? Engine.getIfWin(username) : Engine.getIfLose(answer, correctAnswer, username));
+        System.out.println(cnt == rnd ? Engine.getIfWin(username) : Engine.getIfLose(answer, correctAnswer, username));
     }
 
     public static void gameProgression() {
@@ -96,13 +96,13 @@ public class Games {
         Scanner scanner = new Scanner(System.in);
         int answer = 0;
         int correctAnswer = 0;
-        String username = null;
+        String username;
         int number;
-        int count = 0;
-        int rounds = 3;
+        int cnt = 0;
+        int rnd = 3;
         username = Engine.greet();
         System.out.println("What number is missing in the progression?");
-        while (count < rounds) {
+        while (cnt < rnd) {
             int sumProgression = random.nextInt(1, 12);
             int randomIndex = random.nextInt(1, 9);
             progression[0] = random.nextInt(1, 10);
@@ -114,9 +114,9 @@ public class Games {
             }
             System.out.print("\nYour answer: ");
             answer = scanner.nextInt();
-            count += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
+            cnt += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
         }
-        System.out.println(count == rounds ? Engine.getIfWin(username) : Engine.getIfLose(answer, correctAnswer, username));
+        System.out.println(cnt == rnd ? Engine.getIfWin(username) : Engine.getIfLose(answer, correctAnswer, username));
     }
 
     public static void gamePrime() {
@@ -125,17 +125,17 @@ public class Games {
         String answer = null;
         String correctAnswer = null;
         int number;
-        int count = 0;
-        int rounds = 3;
+        int cnt = 0;
+        int rnd = 3;
         String username = Engine.greet();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        while (count < rounds) {
+        while (cnt < rnd) {
             number = random.nextInt(2, 224);
             System.out.print("Question: " + number + "\nYour answer: ");
             answer = scanner.nextLine();
             correctAnswer = Engine.isPrime(number);
-            count += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
+            cnt += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
         }
-        System.out.println(count == rounds ? Engine.getIfWin(username) : Engine.getIfLose(answer, correctAnswer, username));
+        System.out.println(cnt == rnd ? Engine.getIfWin(username) : Engine.getIfLose(answer, correctAnswer, username));
     }
 }
