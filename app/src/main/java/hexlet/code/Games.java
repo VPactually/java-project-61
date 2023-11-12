@@ -11,17 +11,17 @@ public class Games {
         String answer = null;
         String correctAnswer = null;
         int number;
-        int counter = 0;
+        int count = 0;
         String username = Engine.greet();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        while (counter < 3) {
+        while (count < 3) {
             number = random.nextInt(0, 100);
             System.out.print("Question: " + number + "\nYour answer: ");
             answer = scanner.nextLine();
             correctAnswer = number % 2 == 0 ? "yes" : "no";
-            counter += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
+            count += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
         }
-        System.out.println(counter > 3 ? Engine.getIfLose(answer, correctAnswer, username) : Engine.getIfWin(username));
+        System.out.println(count > 3 ? Engine.getIfLose(answer, correctAnswer, username) : Engine.getIfWin(username));
     }
 
     public static void gameCalc() {
@@ -95,11 +95,12 @@ public class Games {
         int number;
         int count = 0;
         username = Engine.greet();
-        System.out.print("What number is missing in the progression?\nQuestion: ");
+        System.out.println("What number is missing in the progression?");
         while (count < 3) {
             int sumProgression = random.nextInt(1, 12);
             int randomIndex = random.nextInt(1, 9);
             progression[0] = random.nextInt(1, 10);
+            System.out.print("Question: ");
             for (int i = 0; i < progression.length - 1; i++) {
                 progression[i + 1] = progression[i] + sumProgression;
                 System.out.print(i == randomIndex ? ".. " : progression[i] + " ");
@@ -107,6 +108,25 @@ public class Games {
             }
             System.out.print("\nYour answer: ");
             answer = scanner.nextInt();
+            count += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
+        }
+        System.out.println(count == 3 ? Engine.getIfWin(username) : Engine.getIfLose(answer, correctAnswer, username));
+    }
+
+    public static void gamePrime() {
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        String answer = null;
+        String correctAnswer = null;
+        int number;
+        int count = 0;
+        String username = Engine.greet();
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        while (count < 3) {
+            number = random.nextInt(2, 224);
+            System.out.print("Question: " + number + "\nYour answer: ");
+            answer = scanner.nextLine();
+            correctAnswer = Engine.isPrime(number);
             count += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
         }
         System.out.println(count == 3 ? Engine.getIfWin(username) : Engine.getIfLose(answer, correctAnswer, username));

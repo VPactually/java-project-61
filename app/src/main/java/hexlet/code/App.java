@@ -9,8 +9,10 @@ public class App {
                 3 - Calc
                 4 - GCD
                 5 - Progression
+                6 - Prime
                 0 - Exit
                 Your choice:\s""");
+
 
         switch (Engine.getChoice()) {
             case 1 -> Engine.greet();
@@ -18,6 +20,7 @@ public class App {
             case 3 -> Games.gameCalc();
             case 4 -> Games.gameGcd();
             case 5 -> Games.gameProgression();
+            case 6 -> Games.gamePrime();
             default -> {
             }
         }

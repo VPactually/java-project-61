@@ -62,5 +62,14 @@ public class Engine {
         return r == 0 ? b : getGcd(b, r);
     }
 
+    public static String isPrime(double n) {
+        for (int i = 2; i < Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return "no";
+            }
+        }
+        return "yes";
+    }
+
 
 }
