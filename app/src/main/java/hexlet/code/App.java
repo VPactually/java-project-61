@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import hexlet.code.games.Games;
+
 public class App {
     public static void main(String[] args) {
         System.out.print("""
@@ -12,8 +14,6 @@ public class App {
                 6 - Prime
                 0 - Exit
                 Your choice:\s""");
-
-
         switch (Engine.getChoice()) {
             case 1 -> Engine.greet();
             case 2 -> Games.gameEven();
