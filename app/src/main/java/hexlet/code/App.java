@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import hexlet.code.games.Games;
+
 public class App {
     public static void main(String[] args) {
         System.out.print("""
