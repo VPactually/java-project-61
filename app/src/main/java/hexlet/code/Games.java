@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -72,5 +73,27 @@ public class Games {
         System.out.println(counter == 3 ? Engine.getIfWin(username) : Engine.getIfLose(answer, correctAnswer, username));
     }
 
-
+    public static void gameProgression() {
+        Random random = new Random();
+        int[] progression = new int[10];
+        Scanner scanner = new Scanner(System.in);
+        int answer = 0, correctAnswer = 0;
+        String username = null;
+        int number, counter = 0;
+        username = Engine.greet();
+        System.out.print("What number is missing in the progression?\nQuestion: ");
+        while (counter < 3) {
+            int sumProgression = random.nextInt(1, 12), randomIndex = random.nextInt(1, 9);
+            progression[0] = random.nextInt(1, 10);
+            for (int i = 0; i < progression.length - 1; i++) {
+                progression[i + 1] = progression[i] + sumProgression;
+                System.out.print(i == randomIndex ? ".. " : progression[i] + " ");
+                correctAnswer = progression[randomIndex];
+            }
+            System.out.print("\nYour answer: ");
+            answer = scanner.nextInt();
+            counter += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
+        }
+        System.out.println(counter == 3 ? Engine.getIfWin(username) : Engine.getIfLose(answer, correctAnswer, username));
+    }
 }

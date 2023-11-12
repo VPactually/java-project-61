@@ -8,6 +8,7 @@ public class App {
                 2 - Even
                 3 - Calc
                 4 - GCD
+                5 - Progression
                 0 - Exit
                 Your choice:\s""");
 
@@ -16,6 +17,7 @@ public class App {
             case 2 -> Games.gameEven();
             case 3 -> Games.gameCalc();
             case 4 -> Games.gameGcd();
+            case 5 -> Games.gameProgression();
             default -> {
             }
         }
