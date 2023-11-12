@@ -10,7 +10,7 @@ tasks.withType<JavaCompile> {
 }
 
 application {
-    mainClass.set("src/main/java/hexlet/code/App.java")
+    mainClass.set("hexlet.code.App.java")
 
 }
 group = "hexlet.code"
