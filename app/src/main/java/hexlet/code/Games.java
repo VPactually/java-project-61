@@ -11,7 +11,7 @@ public class Games {
         String answer = null;
         String correctAnswer = null;
         int number;
-        int rnd = 3;
+        final int rnd = 3;
         int cntr = 0;
         final int maxRandom = 100;
         String username = Engine.greet();
@@ -31,7 +31,7 @@ public class Games {
         Scanner scanner = new Scanner(System.in);
         int number1;
         int number2;
-        int rnd = 3;
+        final int rnd = 3;
         int cntr = 0;
         final int maxRandom = 100;
         int answer = 0;
@@ -70,7 +70,7 @@ public class Games {
         Scanner scanner = new Scanner(System.in);
         int number1;
         int number2;
-        int rnd = 3;
+        final int rnd = 3;
         int cntr = 0;
         final int maxRandom = 101;
         final int minRandom = 2;
@@ -91,12 +91,13 @@ public class Games {
 
     public static void gameProgression() {
         Random random = new Random();
-        int[] progression = new int[10];
+        final int arrayLength = 10;
+        int[] progression = new int[arrayLength];
         Scanner scanner = new Scanner(System.in);
         int answer = 0;
         int correctAnswer = 0;
         String username;
-        int rnd = 3;
+        final int rnd = 3;
         int cntr = 0;
         final int maxRandomForSumProgression = 12;
         final int randomZeroArrayElement = 10;
@@ -125,7 +126,7 @@ public class Games {
         String answer = null;
         String correctAnswer = null;
         int number;
-        int rnd = 3;
+        final int rnd = 3;
         int cntr = 0;
         final int maxRandom = 224;
         String username = Engine.greet();
