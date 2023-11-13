@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    application
+    id("application")
     checkstyle
 
 }
@@ -10,7 +10,7 @@ tasks.withType<JavaCompile> {
 }
 
 application {
-    mainClass.set("hexlet.code.App.java")
+    mainClass.set("hexlet.code.App")
 
 }
 group = "hexlet.code"
