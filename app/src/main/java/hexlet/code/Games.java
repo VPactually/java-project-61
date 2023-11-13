@@ -73,13 +73,14 @@ public class Games {
         int rnd = 3;
         int cntr = 0;
         final int maxRandom = 101;
+        final int minRandom = 2;
         int answer = 0;
         int correctAnswer = 0;
         String username = Engine.greet();
         System.out.println("Find the greatest common divisor of given numbers.");
         while (cntr < rnd) {
-            number1 = random.nextInt(0, maxRandom);
-            number2 = random.nextInt(0, maxRandom);
+            number1 = random.nextInt(minRandom, maxRandom);
+            number2 = random.nextInt(minRandom, maxRandom);
             System.out.println("Question: " + number1 + " " + number2 + "\nYour answer: ");
             answer = scanner.nextInt();
             correctAnswer = Engine.getGcd(Math.max(number1, number2), Math.min(number1, number2));
