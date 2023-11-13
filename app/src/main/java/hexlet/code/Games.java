@@ -23,7 +23,7 @@ public class Games {
             correctAnswer = number % 2 == 0 ? "yes" : "no";
             cntr += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
         }
-        System.out.println(cntr == rnd ? Engine.getIfLose(answer, correctAnswer, username) : Engine.getIfWin(username));
+        System.out.println(cntr > rnd ? Engine.getIfLose(answer, correctAnswer, username) : Engine.getIfWin(username));
     }
 
     public static void gameCalc() {
