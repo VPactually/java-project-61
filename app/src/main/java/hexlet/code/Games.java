@@ -43,15 +43,15 @@ public class Games {
             System.out.print("Question: ");
             switch (operator) {
                 case "+" -> {
-                    System.out.print(number1 + "+" + number2 + "\nYour answer: ");
+                    System.out.print(number1 + operator + number2 + "\nYour answer: ");
                     correctAnswer = number1 + number2;
                 }
                 case "-" -> {
-                    System.out.print(number1 + "-" + number2 + "\nYour answer: ");
+                    System.out.print(number1 + operator + number2 + "\nYour answer: ");
                     correctAnswer = number1 - number2;
                 }
                 case "*" -> {
-                    System.out.print(number1 + "*" + number2 + "\nYour answer: ");
+                    System.out.print(number1 + operator + number2 + "\nYour answer: ");
                     correctAnswer = number1 * number2;
                 }
                 default -> {
