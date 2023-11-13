@@ -2,6 +2,12 @@ package hexlet.code;
 
 public class App {
     public static void main(String[] args) {
+        final int greet = 1;
+        final int even = 2;
+        final int calc = 3;
+        final int gcd = 4;
+        final int progression = 5;
+        final int prime = 6;
         System.out.print("""
                 Please enter the game number and press Enter.
                 1 - Greet
@@ -15,12 +21,12 @@ public class App {
 
 
         switch (Engine.getChoice()) {
-            case 1 -> Engine.greet();
-            case 2 -> Games.gameEven();
-            case 3 -> Games.gameCalc();
-            case 4 -> Games.gameGcd();
-            case 5 -> Games.gameProgression();
-            case 6 -> Games.gamePrime();
+            case greet -> Engine.greet();
+            case even -> Games.gameEven();
+            case calc -> Games.gameCalc();
+            case gcd -> Games.gameGcd();
+            case progression -> Games.gameProgression();
+            case prime -> Games.gamePrime();
             default -> {
             }
         }

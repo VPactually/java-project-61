@@ -40,11 +40,12 @@ public class Engine {
     }
 
     public static int result(boolean result) {
+        final int endGame = 5;
         if (result) {
             System.out.println("Correct!");
             return 1;
         } else {
-            return 5;
+            return endGame;
         }
     }
 
