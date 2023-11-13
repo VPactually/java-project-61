@@ -40,23 +40,12 @@ public class Games {
             number1 = random.nextInt(0, 100);
             number2 = random.nextInt(0, 100);
             operator = operators[random.nextInt(3)];
-            System.out.print("Question: ");
+            System.out.println("Question: " + number1 + " " + operator + " "+ number2);
             switch (operator) {
-                case "+" -> {
-                    System.out.println(number1 + operator + number2);
-                    correctAnswer = number1 + number2;
-                }
-                case "-" -> {
-                    System.out.println(number1 + operator + number2);
-                    correctAnswer = number1 - number2;
-                }
-                case "*" -> {
-                    System.out.println(number1 + operator + number2);
-                    correctAnswer = number1 * number2;
-                }
-                default -> {
-                    System.out.println("Wrong choice.");
-                }
+                case "+" -> correctAnswer = number1 + number2;
+                case "-" -> correctAnswer = number1 - number2;
+                case "*" -> correctAnswer = number1 * number2;
+                default -> System.out.println("Wrong choice.");
             }
             System.out.print("Your answer: ");
             answer = scanner.nextInt();
