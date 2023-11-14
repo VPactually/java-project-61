@@ -5,8 +5,11 @@ import java.util.Scanner;
 
 public class Games {
     static Random random = new Random();
-    static int maxRandom = 0;
-    static int minRandom = 0;
+    static final int MAX_RANDOM = 224;
+    static final int MIN_RANDOM = 2;
+    static final int ARRAY_LENGTH = 10;
+    static final int MAX_RANDOM_FOR_SUM_PROGRESSION = 12;
+    static final int RANDOM_ZERO_ARRAY_ELEMENT = 10;
     static final int RND = 3;
     static int counter = 0;
     static int number = 0;
@@ -18,16 +21,12 @@ public class Games {
     static int answerInt = 0;
     static int correctAnswerInt = 0;
     static String username;
-    static final int ARRAY_LENGTH = 10;
-    static final int MAX_RANDOM_FOR_SUM_PROGRESSION = 12;
-    static final int RANDOM_ZERO_ARRAY_ELEMENT = 10;
 
     public static void gameEven() {
-        maxRandom = 100;
         username = Engine.greet();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         while (counter < RND) {
-            number = random.nextInt(0, maxRandom);
+            number = random.nextInt(0, MAX_RANDOM);
             System.out.print("Question: " + number + "\nYour answer: ");
             answer = scanner.nextLine();
             correctAnswer = number % 2 == 0 ? "yes" : "no";
@@ -41,12 +40,11 @@ public class Games {
     public static void gameCalc() {
         String[] operators = {"+", "-", "*"};
         String operator;
-        maxRandom = 100;
         username = Engine.greet();
         System.out.println("What is the result of the expression?");
         while (counter < RND) {
-            number1 = random.nextInt(0, maxRandom);
-            number2 = random.nextInt(0, maxRandom);
+            number1 = random.nextInt(0, MAX_RANDOM);
+            number2 = random.nextInt(0, MAX_RANDOM);
             operator = operators[random.nextInt(operators.length - 1)];
             System.out.println("Question: " + number1 + " " + operator + " " + number2);
             switch (operator) {
@@ -72,13 +70,11 @@ public class Games {
     }
 
     public static void gameGcd() {
-        maxRandom = 101;
-        minRandom = 2;
         username = Engine.greet();
         System.out.println("Find the greatest common divisor of given numbers.");
         while (counter < RND) {
-            number1 = random.nextInt(minRandom, maxRandom);
-            number2 = random.nextInt(minRandom, maxRandom);
+            number1 = random.nextInt(MIN_RANDOM, MAX_RANDOM);
+            number2 = random.nextInt(MIN_RANDOM, MAX_RANDOM);
             System.out.println("Question: " + number1 + " " + number2 + "\nYour answer: ");
             answerInt = scanner.nextInt();
             correctAnswerInt = Engine.getGcd(Math.max(number1, number2), Math.min(number1, number2));
@@ -113,11 +109,10 @@ public class Games {
     }
 
     public static void gamePrime() {
-        maxRandom = 224;
         username = Engine.greet();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         while (counter < RND) {
-            number = random.nextInt(2, maxRandom);
+            number = random.nextInt(2, MAX_RANDOM);
             System.out.print("Question: " + number + "\nYour answer: ");
             answer = scanner.nextLine();
             correctAnswer = Engine.isPrime(number);
