@@ -10,19 +10,17 @@ public class Games {
     static final int MAX_RANDOM_FOR_SUM_PROGRESSION = 12;
     static final int RANDOM_ZERO_ARRAY_ELEMENT = 10;
     static final int RND = 3;
-    static String username = null;
 
-    static Random random = new Random();
-    static Scanner scanner = new Scanner(System.in);
 
 
     public static void gameEven() {
-
+        String username;
         int number;
         String answer = null;
         String correctAnswer = null;
         int counter = 0;
-
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
         username = Engine.greet();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         while (counter < RND) {
@@ -38,13 +36,16 @@ public class Games {
     }
 
     public static void gameCalc() {
+        String username;
         String[] operators = {"+", "-", "*"};
         String operator;
-        int number1 = 0;
-        int number2 = 0;
+        int number1;
+        int number2;
         int answerInt = 0;
         int correctAnswerInt = 0;
         int counter = 0;
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
 
         username = Engine.greet();
         System.out.println("What is the result of the expression?");
@@ -77,11 +78,14 @@ public class Games {
     }
 
     public static void gameGcd() {
+        String username;
         int number1;
         int number2;
         int answerInt = 0;
         int correctAnswerInt = 0;
         int counter = 0;
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
 
         username = Engine.greet();
         System.out.println("Find the greatest common divisor of given numbers.");
@@ -99,10 +103,13 @@ public class Games {
     }
 
     public static void gameProgression() {
+        String username;
         int[] progression = new int[ARRAY_LENGTH];
         int answerInt = 0;
         int correctAnswerInt = 0;
         int counter = 0;
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
 
         username = Engine.greet();
         System.out.println("What number is missing in the progression?");
@@ -126,10 +133,13 @@ public class Games {
     }
 
     public static void gamePrime() {
+        String username;
         int number;
         String answer = null;
         String correctAnswer = null;
         int counter = 0;
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
 
         username = Engine.greet();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
