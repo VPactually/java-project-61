@@ -3,6 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    static final int RND = 3;
 
     public static String greet() {
         String username;
@@ -24,6 +25,12 @@ public class Engine {
 
     public static boolean isCorrectAnswer(int answer, int correctAnswer) {
         return answer == correctAnswer;
+    }
+
+    public static String getEndGame (int counter, String username, String answer, String correctAnswer) {
+        return counter == RND
+                ? Engine.getIfWin(username)
+                : Engine.getIfLose(answer, correctAnswer, username);
     }
 
     public static String getIfLose(String answer, String correctAnswer, String username) {

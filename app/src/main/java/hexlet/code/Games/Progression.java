@@ -1,6 +1,7 @@
 package hexlet.code.Games;
 
 import hexlet.code.Engine;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -9,6 +10,7 @@ public class Progression {
     static final int MAX_RANDOM_FOR_SUM_PROGRESSION = 12;
     static final int RANDOM_ZERO_ARRAY_ELEMENT = 10;
     static final int RND = 3;
+
     public static void gameProgression() {
         String username;
         int[] progression = new int[ARRAY_LENGTH];
@@ -34,8 +36,6 @@ public class Progression {
             answerInt = scanner.nextInt();
             counter += Engine.result(Engine.isCorrectAnswer(answerInt, correctAnswerInt));
         }
-        System.out.println(counter == RND
-                ? Engine.getIfWin(username)
-                : Engine.getIfLose(Integer.toString(answerInt), Integer.toString(correctAnswerInt), username));
+        Engine.getEndGame(counter, username, Integer.toString(answerInt), Integer.toString(correctAnswerInt));
     }
 }

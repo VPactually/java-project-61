@@ -27,8 +27,6 @@ public class Even {
             correctAnswer = number % 2 == 0 ? "yes" : "no";
             counter += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
         }
-        System.out.println(counter > RND
-                ? Engine.getIfLose(answer, correctAnswer, username)
-                : Engine.getIfWin(username));
+        Engine.getEndGame(counter, username, answer, correctAnswer);
     }
 }

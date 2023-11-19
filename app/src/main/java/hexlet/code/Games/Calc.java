@@ -46,8 +46,6 @@ public class Calc {
             answerInt = scanner.nextInt();
             counter += Engine.result(Engine.isCorrectAnswer(answerInt, correctAnswerInt));
         }
-        System.out.println(counter == RND
-                ? Engine.getIfWin(username)
-                : Engine.getIfLose(Integer.toString(answerInt), Integer.toString(correctAnswerInt), username));
+        Engine.getEndGame(counter, username, Integer.toString(answerInt), Integer.toString(correctAnswerInt));
     }
 }

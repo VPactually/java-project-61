@@ -30,8 +30,6 @@ public class GCD {
             correctAnswerInt = Engine.getGcd(Math.max(number1, number2), Math.min(number1, number2));
             counter += Engine.result(Engine.isCorrectAnswer(answerInt, correctAnswerInt));
         }
-        System.out.println(counter == RND
-                ? Engine.getIfWin(username)
-                : Engine.getIfLose(Integer.toString(answerInt), Integer.toString(correctAnswerInt), username));
+        Engine.getEndGame(counter, username, Integer.toString(answerInt), Integer.toString(correctAnswerInt));
     }
 }
