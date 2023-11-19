@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Calc {
     static final int MAX_RANDOM = 224;
     static final int RND = 3;
+    static final String[] operators = {"+", "-", "*"};
 
     private static int setCorrectAnswer (String operator, int number1, int number2) {
         int correctAnswerInt = 0;
@@ -29,7 +30,6 @@ public class Calc {
 
     public static void gameCalc() {
         String username;
-        String[] operators = {"+", "-", "*"};
         String operator;
         int number1;
         int number2;
@@ -38,7 +38,6 @@ public class Calc {
         int counter = 0;
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
-
         username = Engine.greet();
         System.out.println("What is the result of the expression?");
         while (counter < RND) {
