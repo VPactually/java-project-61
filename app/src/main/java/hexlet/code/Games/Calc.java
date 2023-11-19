@@ -9,6 +9,24 @@ public class Calc {
     static final int MAX_RANDOM = 224;
     static final int RND = 3;
 
+    private static int setCorrectAnswer (String operator, int number1, int number2) {
+        int correctAnswerInt = 0;
+        switch (operator) {
+            case "+":
+                correctAnswerInt = number1 + number2;
+                break;
+            case "-":
+                correctAnswerInt = number1 - number2;
+                break;
+            case "*":
+                correctAnswerInt = number1 * number2;
+                break;
+            default:
+                System.out.println("Wrong choice.");
+        }
+        return correctAnswerInt;
+    }
+
     public static void gameCalc() {
         String username;
         String[] operators = {"+", "-", "*"};
@@ -26,22 +44,9 @@ public class Calc {
         while (counter < RND) {
             number1 = random.nextInt(0, MAX_RANDOM);
             number2 = random.nextInt(0, MAX_RANDOM);
-
             operator = operators[random.nextInt(operators.length - 1)];
             System.out.println("Question: " + number1 + " " + operator + " " + number2);
-            switch (operator) {
-                case "+":
-                    correctAnswerInt = number1 + number2;
-                    break;
-                case "-":
-                    correctAnswerInt = number1 - number2;
-                    break;
-                case "*":
-                    correctAnswerInt = number1 * number2;
-                    break;
-                default:
-                    System.out.println("Wrong choice.");
-            }
+            correctAnswerInt = setCorrectAnswer(operator,number1,number2);
             System.out.print("Your answer: ");
             answerInt = scanner.nextInt();
             counter += Engine.result(Engine.isCorrectAnswer(answerInt, correctAnswerInt));
