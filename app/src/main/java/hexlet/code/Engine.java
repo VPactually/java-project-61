@@ -27,7 +27,7 @@ public class Engine {
         return answer == correctAnswer;
     }
 
-    public static String getEndGame (int counter, String username, String answer, String correctAnswer) {
+    public static String getEndGame(int counter, String username, String answer, String correctAnswer) {
         return counter == RND
                 ? Engine.getIfWin(username)
                 : Engine.getIfLose(answer, correctAnswer, username);

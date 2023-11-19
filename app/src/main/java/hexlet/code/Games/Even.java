@@ -27,6 +27,6 @@ public class Even {
             correctAnswer = number % 2 == 0 ? "yes" : "no";
             counter += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
         }
-        Engine.getEndGame(counter, username, answer, correctAnswer);
+        System.out.println(Engine.getEndGame(counter, username, answer, correctAnswer));
     }
 }

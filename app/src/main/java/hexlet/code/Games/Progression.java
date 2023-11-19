@@ -19,7 +19,6 @@ public class Progression {
         int counter = 0;
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
-
         username = Engine.greet();
         System.out.println("What number is missing in the progression?");
         while (counter < RND) {
@@ -36,6 +35,7 @@ public class Progression {
             answerInt = scanner.nextInt();
             counter += Engine.result(Engine.isCorrectAnswer(answerInt, correctAnswerInt));
         }
-        Engine.getEndGame(counter, username, Integer.toString(answerInt), Integer.toString(correctAnswerInt));
+        System.out.print(Engine.getEndGame(counter, username,
+                Integer.toString(answerInt), Integer.toString(correctAnswerInt)));
     }
 }

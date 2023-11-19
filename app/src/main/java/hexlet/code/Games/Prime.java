@@ -27,6 +27,6 @@ public class Prime {
             correctAnswer = Engine.isPrime(number);
             counter += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
         }
-        Engine.getEndGame(counter, username, answer, correctAnswer);
+        System.out.println(Engine.getEndGame(counter, username, answer, correctAnswer));
     }
 }
