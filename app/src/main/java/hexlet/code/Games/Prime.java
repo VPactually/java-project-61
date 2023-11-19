@@ -2,11 +2,13 @@ package hexlet.code.Games;
 
 import java.util.Random;
 import java.util.Scanner;
+
 import hexlet.code.Engine;
 
 public class Prime {
     static final int MAX_RANDOM = 224;
     static final int RND = 3;
+
     public static void gamePrime() {
         String username;
         int number;

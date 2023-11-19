@@ -1,6 +1,7 @@
 package hexlet.code.Games;
 
 import hexlet.code.Engine;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,6 +9,7 @@ public class GCD {
     static final int MAX_RANDOM = 224;
     static final int MIN_RANDOM = 2;
     static final int RND = 3;
+
     public static void gameGcd() {
         String username;
         int number1;
@@ -30,6 +32,6 @@ public class GCD {
         }
         System.out.println(counter == RND
                 ? Engine.getIfWin(username)
-                : Engine.getIfLose(answerInt, correctAnswerInt, username));
+                : Engine.getIfLose(Integer.toString(answerInt), Integer.toString(correctAnswerInt), username));
     }
 }

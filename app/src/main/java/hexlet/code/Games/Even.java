@@ -1,6 +1,7 @@
 package hexlet.code.Games;
 
 import hexlet.code.Engine;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,6 +9,7 @@ public class Even {
 
     static final int MAX_RANDOM = 224;
     static final int RND = 3;
+
     public static void gameEven() {
         String username;
         int number;

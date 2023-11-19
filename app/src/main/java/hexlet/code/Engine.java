@@ -31,11 +31,6 @@ public class Engine {
                 + correctAnswer + "'." + "\nLet's try again, " + username + "!";
     }
 
-    public static String getIfLose(int answer, int correctAnswer, String username) {
-        return "'" + answer + "' is wrong answer ;(. " + "Correct answer was '"
-                + correctAnswer + "'." + "\nLet's try again, " + username + "!";
-    }
-
     public static String getIfWin(String username) {
         return "Congratulations, " + username + "!";
     }

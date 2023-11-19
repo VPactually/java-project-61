@@ -1,12 +1,14 @@
 package hexlet.code.Games;
 
 import hexlet.code.Engine;
+
 import java.util.Random;
 import java.util.Scanner;
 
 public class Calc {
     static final int MAX_RANDOM = 224;
     static final int RND = 3;
+
     public static void gameCalc() {
         String username;
         String[] operators = {"+", "-", "*"};
@@ -46,6 +48,6 @@ public class Calc {
         }
         System.out.println(counter == RND
                 ? Engine.getIfWin(username)
-                : Engine.getIfLose(answerInt, correctAnswerInt, username));
+                : Engine.getIfLose(Integer.toString(answerInt), Integer.toString(correctAnswerInt), username));
     }
 }

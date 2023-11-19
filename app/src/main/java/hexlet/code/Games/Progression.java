@@ -36,6 +36,6 @@ public class Progression {
         }
         System.out.println(counter == RND
                 ? Engine.getIfWin(username)
-                : Engine.getIfLose(answerInt, correctAnswerInt, username));
+                : Engine.getIfLose(Integer.toString(answerInt), Integer.toString(correctAnswerInt), username));
     }
 }
