@@ -2,6 +2,7 @@ package hexlet.code.Games;
 
 import hexlet.code.Engine;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -9,33 +10,33 @@ public class Progression {
     static final int ARRAY_LENGTH = 10;
     static final int MAX_RANDOM_FOR_SUM_PROGRESSION = 12;
     static final int RANDOM_ZERO_ARRAY_ELEMENT = 10;
-    static final int RND = 3;
 
     public static void gameProgression() {
-        String username;
-        int[] progression = new int[ARRAY_LENGTH];
-        int answerInt = 0;
-        int correctAnswerInt = 0;
-        int counter = 0;
+
         Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
-        username = Engine.greet();
-        System.out.println("What number is missing in the progression?");
-        while (counter < RND) {
-            int sumProgression = random.nextInt(1, MAX_RANDOM_FOR_SUM_PROGRESSION);
-            int randomIndex = random.nextInt(1, progression.length - 1);
-            progression[0] = random.nextInt(1, RANDOM_ZERO_ARRAY_ELEMENT);
-            System.out.print("Question: ");
-            for (int i = 0; i < progression.length - 1; i++) {
-                progression[i + 1] = progression[i] + sumProgression;
-                System.out.print(i == randomIndex ? ".. " : progression[i] + " ");
-                correctAnswerInt = progression[randomIndex];
+        var array = new Object[Engine.getRND()][Engine.getArrayLengthForQuestionAndAnswer()];
+        Object[] progression = new Object[ARRAY_LENGTH];
+        int randomIndex = random.nextInt(1, progression.length - 1);
+        int sumProgression = random.nextInt(1, MAX_RANDOM_FOR_SUM_PROGRESSION);
+        int answer;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < Engine.getRND(); i++) {
+            for (int j = 0; j < Engine.getArrayLengthForQuestionAndAnswer(); j += 2) {
+                progression[0] = random.nextInt(1, RANDOM_ZERO_ARRAY_ELEMENT);
+
+                for (int k = 0; k < progression.length - 1; k++) {
+                    progression[k + 1] = (int) progression[k] + sumProgression;
+                }
+                answer = (int) progression[randomIndex];
+                progression[randomIndex] = "..";
+
+                for (Object o : progression) {
+                    sb.append(o).append(" ");
+                }
+
+                array[i][j] = sb;
+                array[i][j + 1] = answer;
             }
-            System.out.print("\nYour answer: ");
-            answerInt = scanner.nextInt();
-            counter += Engine.result(Engine.isCorrectAnswer(answerInt, correctAnswerInt));
         }
-        System.out.print(Engine.getEndGame(counter, username,
-                Integer.toString(answerInt), Integer.toString(correctAnswerInt)));
     }
 }
