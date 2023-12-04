@@ -4,6 +4,15 @@ import java.util.Scanner;
 
 public class Engine {
     static final int RND = 3;
+    static final int ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER = 2;
+
+    public static int getArrayLengthForQuestionAndAnswer() {
+        return ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER;
+    }
+
+    public static int getRND() {
+        return RND;
+    }
 
     public static String greet() {
         String username;
@@ -18,6 +27,10 @@ public class Engine {
             return "Invalid input.";
         }
     }
+
+//    public static String logic() {
+//
+//    }
 
     public static boolean isCorrectAnswer(String answer, String correctAnswer) {
         return answer.equalsIgnoreCase(correctAnswer);
