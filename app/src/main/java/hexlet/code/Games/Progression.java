@@ -2,6 +2,7 @@ package hexlet.code.Games;
 
 import hexlet.code.Engine;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Progression {
@@ -14,11 +15,12 @@ public class Progression {
         var array = new Object[Engine.getRND()][Engine.getArrayLengthForQuestionAndAnswer()];
         Object[] progression = new Object[ARRAY_LENGTH];
         int randomIndex = random.nextInt(1, progression.length - 1);
-        int sumProgression = random.nextInt(1, MAX_RANDOM_FOR_SUM_PROGRESSION);
+        int sumProgression;
         int answer;
-        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < Engine.getRND(); i++) {
             for (int j = 0; j < Engine.getArrayLengthForQuestionAndAnswer(); j += 2) {
+                StringBuilder sb = new StringBuilder();
+                sumProgression = random.nextInt(1, MAX_RANDOM_FOR_SUM_PROGRESSION);
                 progression[0] = random.nextInt(1, RANDOM_ZERO_ARRAY_ELEMENT);
 
                 for (int k = 0; k < progression.length - 1; k++) {
@@ -32,9 +34,10 @@ public class Progression {
                 }
 
                 array[i][j] = sb;
-                array[i][j + 1] = answer;
+                array[i][j + 1] = Integer.toString(answer);
             }
         }
+        System.out.println(Arrays.deepToString(array));
         Engine.logic(array, "What number is missing in the progression?");
     }
 }

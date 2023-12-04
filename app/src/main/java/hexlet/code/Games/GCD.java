@@ -23,7 +23,7 @@ public class GCD {
                 number1 = random.nextInt(MIN_RANDOM, MAX_RANDOM);
                 number2 = random.nextInt(MIN_RANDOM, MAX_RANDOM);
                 array[i][j] = number1 + " " + number2;
-                array[i][j + 1] = getGcd(number1, number2);
+                array[i][j + 1] = Integer.toString(getGcd(number1, number2));
             }
         }
         Engine.logic(array, "Find the greatest common divisor of given numbers.");

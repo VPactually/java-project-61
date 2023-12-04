@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Engine {
     static final int RND = 3;
+    static final int FINISH = 4;
     static final int ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER = 2;
 
     public static int getArrayLengthForQuestionAndAnswer() {
@@ -28,21 +29,7 @@ public class Engine {
         }
     }
 
-    public static boolean isCorrectAnswer(String answer, String correctAnswer) {
-        return answer.equalsIgnoreCase(correctAnswer);
-    }
-
-    public static boolean isCorrectAnswer(int answer, int correctAnswer) {
-        return answer == correctAnswer;
-    }
-
-    public static String getEndGame(int counter, String username, String answer, String correctAnswer) {
-        return counter < RND
-                ? Engine.getIfWin(username)
-                : Engine.getIfLose(answer, correctAnswer, username);
-    }
-
-    public static String getIfLose(String answer, String correctAnswer, String username) {
+    public static String getIfLose(Object answer, Object correctAnswer, String username) {
         return "'" + answer + "' is wrong answer ;(. " + "Correct answer was '"
                 + correctAnswer + "'." + "\nLet's try again, " + username + "!";
     }
@@ -56,7 +43,7 @@ public class Engine {
             System.out.println("Correct!");
             return 1;
         } else {
-            return RND;
+            return FINISH;
         }
     }
 
@@ -70,9 +57,18 @@ public class Engine {
     }
 
     public static void logic(Object[][] array, String rule) {
+        Scanner scanner = new Scanner(System.in);
         String username = greet();
-
+        String answer = null;
+        int counter = 0;
+        System.out.println(rule);
+        while (counter < RND) {
+            System.out.print("Question: " + array[counter][0] + "\nYour answer: ");
+            answer = scanner.nextLine();
+            counter += result(answer.equalsIgnoreCase((String) array[counter][1]));
+        }
+        System.out.println(counter == RND
+                ? getIfWin(username)
+                : getIfLose(answer, array[counter - FINISH][1], username));
     }
-
-
 }

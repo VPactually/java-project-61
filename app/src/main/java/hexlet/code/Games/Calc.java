@@ -38,7 +38,7 @@ public class Calc {
                 number2 = random.nextInt(0, MAX_RANDOM);
                 operator = OPERATORS[random.nextInt(OPERATORS.length - 1)];
                 array[i][j] = number1 + " " + operator + " " + number2;
-                array[i][j + 1] = setCorrectAnswer(operator, number1, number2);
+                array[i][j + 1] = Integer.toString(setCorrectAnswer(operator, number1, number2));
             }
         }
         Engine.logic(array, "What is the result of the expression?");
