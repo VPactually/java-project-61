@@ -41,5 +41,6 @@ public class Calc {
                 array[i][j + 1] = setCorrectAnswer(operator, number1, number2);
             }
         }
+        Engine.logic(array, "What is the result of the expression?");
     }
 }

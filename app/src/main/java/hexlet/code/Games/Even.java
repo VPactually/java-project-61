@@ -16,5 +16,6 @@ public class Even {
                 array[i][j + 1] = (int) array[i][j] % 2 == 0 ? "yes" : "no";
             }
         }
+        Engine.logic(array, "\"Answer 'yes' if the number is even, otherwise answer 'no'.\"");
     }
 }

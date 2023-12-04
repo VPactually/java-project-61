@@ -26,5 +26,6 @@ public class GCD {
                 array[i][j + 1] = getGcd(number1, number2);
             }
         }
+        Engine.logic(array, "Find the greatest common divisor of given numbers.");
     }
 }

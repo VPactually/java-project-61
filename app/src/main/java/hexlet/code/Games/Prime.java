@@ -28,6 +28,6 @@ public class Prime {
                 array[i][j + 1] = isPrime(number) ? "yes" : "no";
             }
         }
-        System.out.println(Arrays.deepToString(array));
+        Engine.logic(array, "Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 }

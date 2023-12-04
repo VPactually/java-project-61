@@ -37,7 +37,7 @@ public class Engine {
     }
 
     public static String getEndGame(int counter, String username, String answer, String correctAnswer) {
-        return counter == RND
+        return counter < RND
                 ? Engine.getIfWin(username)
                 : Engine.getIfLose(answer, correctAnswer, username);
     }
@@ -52,12 +52,11 @@ public class Engine {
     }
 
     public static int result(boolean result) {
-        final int endGame = 5;
         if (result) {
             System.out.println("Correct!");
             return 1;
         } else {
-            return endGame;
+            return RND;
         }
     }
 
@@ -70,8 +69,10 @@ public class Engine {
         }
     }
 
+    public static void logic(Object[][] array, String rule) {
+        String username = greet();
 
-
+    }
 
 
 }

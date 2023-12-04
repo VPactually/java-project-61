@@ -10,7 +10,6 @@ public class Progression {
     static final int RANDOM_ZERO_ARRAY_ELEMENT = 10;
 
     public static void gameProgression() {
-
         Random random = new Random();
         var array = new Object[Engine.getRND()][Engine.getArrayLengthForQuestionAndAnswer()];
         Object[] progression = new Object[ARRAY_LENGTH];
@@ -36,5 +35,6 @@ public class Progression {
                 array[i][j + 1] = answer;
             }
         }
+        Engine.logic(array, "What number is missing in the progression?");
     }
 }
