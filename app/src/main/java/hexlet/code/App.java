@@ -26,7 +26,7 @@ public class App {
                 0 - Exit
                 Your choice:\s""");
 
-        switch (5) {
+        switch (Engine.getChoice()) {
             case greet -> Engine.greet();
             case even -> Even.gameEven();
             case calc -> Calc.gameCalc();

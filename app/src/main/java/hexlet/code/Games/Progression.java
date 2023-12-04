@@ -2,9 +2,7 @@ package hexlet.code.Games;
 
 import hexlet.code.Engine;
 
-import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Progression {
     static final int ARRAY_LENGTH = 10;

@@ -1,32 +1,33 @@
 package hexlet.code.Games;
 
+import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 
 import hexlet.code.Engine;
 
 public class Prime {
     static final int MAX_RANDOM = 224;
-    static final int RND = 3;
+
+    public static boolean isPrime(double n) {
+        for (int i = 2; i < Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public static void gamePrime() {
-        String username;
-        int number;
-        String answer = null;
-        String correctAnswer = null;
-        int counter = 0;
         Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
-
-        username = Engine.greet();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        while (counter < RND) {
-            number = random.nextInt(2, MAX_RANDOM);
-            System.out.print("Question: " + number + "\nYour answer: ");
-            answer = scanner.nextLine();
-            correctAnswer = Engine.isPrime(number);
-            counter += Engine.result(Engine.isCorrectAnswer(answer, correctAnswer));
+        int number;
+        var array = new Object[Engine.getRND()][Engine.getArrayLengthForQuestionAndAnswer()];
+        for (int i = 0; i < Engine.getRND(); i++) {
+            for (int j = 0; j < Engine.getArrayLengthForQuestionAndAnswer(); j += 2) {
+                number = random.nextInt(2, MAX_RANDOM);
+                array[i][j] = number;
+                array[i][j + 1] = isPrime(number) ? "yes" : "no";
+            }
         }
-        System.out.println(Engine.getEndGame(counter, username, answer, correctAnswer));
+        System.out.println(Arrays.deepToString(array));
     }
 }
