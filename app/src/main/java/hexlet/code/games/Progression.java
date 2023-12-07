@@ -3,6 +3,8 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
+import java.util.Arrays;
+
 
 public class Progression {
     static final int ARRAY_LENGTH = 10;
@@ -11,27 +13,28 @@ public class Progression {
 
     public static String[] generateRoundData() {
         int sumProgression;
-        int answer;
-        String[] progression = new String[ARRAY_LENGTH];
+        int answer = 0;
+        int randomIndex = 0;
+        int[] progression = new int[ARRAY_LENGTH];
         String[] result = new String[Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER];
-        int randomIndex = Utils.getRandomNumber(1, progression.length - 1);
+
         for (int i = 0; i < Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER; i += 2) {
             StringBuilder sb = new StringBuilder();
-
+            progression[0] = Utils.getRandomNumber(1, RANDOM_ZERO_ARRAY_ELEMENT);
             sumProgression = Utils.getRandomNumber(1, MAX_RANDOM_FOR_SUM_PROGRESSION);
-            progression[0] = String.valueOf(Utils.getRandomNumber(1, RANDOM_ZERO_ARRAY_ELEMENT));
-
-            for (int k = 0; k < progression.length - 1; k++) {
-                progression[k + 1] = progression[k] + sumProgression;
+            for (int j = 0; j < progression.length - 1; j++) {
+                randomIndex = Utils.getRandomNumber(1, progression.length - 1);
+                progression[j + 1] = progression[j] + sumProgression;
+                answer = progression[randomIndex];
             }
-            answer = Integer.parseInt(progression[randomIndex]);
-            progression[randomIndex] = "..";
-
-            for (Object o : progression) {
-                sb.append(o).append(" ");
+            for (int num : progression) {
+                if (num == progression[randomIndex]) {
+                    sb.append(".. ");
+                } else {
+                    sb.append(num).append(" ");
+                }
             }
-
-            result[i] = String.valueOf(sb);
+            result[i] = sb.toString();
             result[i + 1] = Integer.toString(answer);
         }
         return result;
