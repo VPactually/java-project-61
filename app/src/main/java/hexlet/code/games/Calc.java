@@ -1,45 +1,40 @@
-package hexlet.code.Games;
+package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.Utils;
 
 public class Calc {
     static final int MAX_RANDOM = 224;
     static final String[] OPERATORS = {"+", "-", "*"};
 
     private static int setCorrectAnswer(String operator, int number1, int number2) {
-        int correctAnswerInt = 0;
-        switch (operator) {
-            case "+":
-                correctAnswerInt = number1 + number2;
-                break;
-            case "-":
-                correctAnswerInt = number1 - number2;
-                break;
-            case "*":
-                correctAnswerInt = number1 * number2;
-                break;
-            default:
-                System.out.println("Wrong choice.");
-        }
-        return correctAnswerInt;
+        return switch (operator) {
+            case "+" -> number1 + number2;
+            case "-" -> number1 - number2;
+            case "*" -> number1 * number2;
+            default -> throw new IllegalArgumentException("Unsupported operator: " + operator);
+        };
     }
 
-    public static void gameCalc() {
+    public static String[] generateRoundData() {
+        String[] result = new String[Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER];
         String operator;
         int number1;
         int number2;
-        Random random = new Random();
-        var array = new Object[Engine.getRND()][Engine.getArrayLengthForQuestionAndAnswer()];
-        for (int i = 0; i < Engine.getRND(); i++) {
-            for (int j = 0; j < Engine.getArrayLengthForQuestionAndAnswer(); j += 2) {
-                number1 = random.nextInt(0, MAX_RANDOM);
-                number2 = random.nextInt(0, MAX_RANDOM);
-                operator = OPERATORS[random.nextInt(OPERATORS.length - 1)];
-                array[i][j] = number1 + " " + operator + " " + number2;
-                array[i][j + 1] = Integer.toString(setCorrectAnswer(operator, number1, number2));
-            }
+        for (int i = 0; i < Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER; i += 2) {
+            number1 = Utils.getRandomNumber(0, MAX_RANDOM);
+            number2 = Utils.getRandomNumber(0, MAX_RANDOM);
+            operator = OPERATORS[Utils.getRandomNumber(OPERATORS.length - 1)];
+            result[i] = number1 + " " + operator + " " + number2;
+            result[i + 1] = Integer.toString(setCorrectAnswer(operator, number1, number2));
+        }
+        return result;
+    }
+
+    public static void startGame() {
+        var array = new String[Engine.RND][Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER];
+        for (int i = 0; i < Engine.RND; i++) {
+            array[i] = generateRoundData();
         }
         Engine.logic(array, "What is the result of the expression?");
     }

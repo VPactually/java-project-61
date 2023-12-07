@@ -1,10 +1,11 @@
 package hexlet.code;
 
-import hexlet.code.Games.Even;
-import hexlet.code.Games.Calc;
-import hexlet.code.Games.GCD;
-import hexlet.code.Games.Progression;
-import hexlet.code.Games.Prime;
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
+
 
 public class App {
     public static void main(String[] args) {
@@ -27,14 +28,13 @@ public class App {
                 Your choice:\s""");
 
         switch (Engine.getChoice()) {
-            case greet -> Engine.greet();
-            case even -> Even.gameEven();
-            case calc -> Calc.gameCalc();
-            case gcd -> GCD.gameGcd();
-            case progression -> Progression.gameProgression();
-            case prime -> Prime.gamePrime();
-            default -> {
-            }
+            case greet -> Cli.greeting();
+            case even -> Even.startGame();
+            case calc -> Calc.startGame();
+            case gcd -> GCD.startGame();
+            case progression -> Progression.startGame();
+            case prime -> Prime.startGame();
+            default -> System.out.println("Good bye!");
         }
     }
 }
