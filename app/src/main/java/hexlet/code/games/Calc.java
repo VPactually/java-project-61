@@ -7,7 +7,7 @@ public class Calc {
     static final int MAX_RANDOM = 224;
     static final String[] OPERATORS = {"+", "-", "*"};
 
-    private static int setCorrectAnswer(String operator, int number1, int number2) {
+    private static int calculateCorrectAnswer(String operator, int number1, int number2) {
         return switch (operator) {
             case "+" -> number1 + number2;
             case "-" -> number1 - number2;
@@ -26,14 +26,14 @@ public class Calc {
             number2 = Utils.getRandomNumber(0, MAX_RANDOM);
             operator = OPERATORS[Utils.getRandomNumber(OPERATORS.length - 1)];
             result[i] = number1 + " " + operator + " " + number2;
-            result[i + 1] = Integer.toString(setCorrectAnswer(operator, number1, number2));
+            result[i + 1] = Integer.toString(calculateCorrectAnswer(operator, number1, number2));
         }
         return result;
     }
 
     public static void startGame() {
-        var array = new String[Engine.RND][Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER];
-        for (int i = 0; i < Engine.RND; i++) {
+        var array = new String[Engine.ROUNDS_COUNT][Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER];
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
             array[i] = generateRoundData();
         }
         Engine.logic(array, "What is the result of the expression?");

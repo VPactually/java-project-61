@@ -27,8 +27,8 @@ public class Prime {
     }
 
     public static void startGame() {
-        var array = new String[Engine.RND][Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER];
-        for (int i = 0; i < Engine.RND; i++) {
+        var array = new String[Engine.ROUNDS_COUNT][Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER];
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
             array[i] = generateRoundData();
         }
         Engine.logic(array, "Answer 'yes' if given number is prime. Otherwise answer 'no'.");

@@ -26,8 +26,8 @@ public class GCD {
     }
 
     public static void startGame() {
-        var array = new String[Engine.RND][Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER];
-        for (int i = 0; i < Engine.RND; i++) {
+        var array = new String[Engine.ROUNDS_COUNT][Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER];
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
             array[i] = generateRoundData();
         }
         Engine.logic(array, "Find the greatest common divisor of given numbers.");

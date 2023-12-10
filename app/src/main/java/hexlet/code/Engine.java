@@ -3,26 +3,11 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static final int RND = 3;
+    public static final int ROUNDS_COUNT = 3;
     public static final int ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER = 2;
-
-    public static String getIfLose(Object answer, Object correctAnswer, String username) {
-        return "'" + answer + "' is wrong answer ;(. " + "Correct answer was '"
-                + correctAnswer + "'." + "\nLet's try again, " + username + "!";
-    }
-
-    public static String getIfWin(String username) {
-        return "Congratulations, " + username + "!";
-    }
-
-    public static int getChoice() {
-        Scanner scanner = new Scanner(System.in);
-        if (scanner.hasNextInt()) {
-            return scanner.nextInt();
-        } else {
-            return 0;
-        }
-    }
+    public static final String WIN_MSG_PATTERN = "Congratulations, %s!";
+    public static final String LOSE_MSG_PATTERN = "'%s' is wrong answer ;(. Correct answer was '%s'."
+            + "\nLet's try again, %s!";
 
     public static void logic(String[][] array, String rule) {
         Scanner scanner = new Scanner(System.in);
@@ -44,8 +29,10 @@ public class Engine {
             System.out.println("Correct!");
             counter++;
         }
-        System.out.println(counter == RND
-                ? getIfWin(username)
-                : getIfLose(answer, array[counter][1], username));
+        if (counter == ROUNDS_COUNT) {
+            System.out.printf(WIN_MSG_PATTERN, username);
+        } else {
+            System.out.printf(LOSE_MSG_PATTERN, answer, array[0][1], username);
+        }
     }
 }

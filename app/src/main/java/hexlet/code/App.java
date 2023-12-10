@@ -6,16 +6,12 @@ import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
+import java.util.Scanner;
+
 
 public class App {
     public static void main(String[] args) {
-        final int greet = 1;
-        final int even = 2;
-        final int calc = 3;
-        final int gcd = 4;
-        final int progression = 5;
-        final int prime = 6;
-
+        Scanner scanner = new Scanner(System.in);
         System.out.print("""
                 Please enter the game number and press Enter.
                 1 - Greet
@@ -27,13 +23,13 @@ public class App {
                 0 - Exit
                 Your choice:\s""");
 
-        switch (Engine.getChoice()) {
-            case greet -> Cli.greeting();
-            case even -> Even.startGame();
-            case calc -> Calc.startGame();
-            case gcd -> GCD.startGame();
-            case progression -> Progression.startGame();
-            case prime -> Prime.startGame();
+        switch (scanner.nextLine()) {
+            case "1" -> Cli.greeting();
+            case "2" -> Even.startGame();
+            case "3" -> Calc.startGame();
+            case "4" -> GCD.startGame();
+            case "5" -> Progression.startGame();
+            case "6" -> Prime.startGame();
             default -> System.out.println("Good bye!");
         }
     }
