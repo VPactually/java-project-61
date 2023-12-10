@@ -7,7 +7,13 @@ public class Prime {
     static final int MAX_RANDOM = 224;
 
     public static boolean isPrime(double n) {
-        for (int i = 2; i < Math.sqrt(n); i++) {
+        if (n <= 1 || n % 2 == 0) {
+            return false;
+        }
+        if (n == 2) {
+            return true;
+        }
+        for (int i = 3; i <= Math.sqrt(n); i+=2) {
             if (n % i == 0) {
                 return false;
             }
