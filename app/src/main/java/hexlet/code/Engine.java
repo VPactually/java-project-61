@@ -32,7 +32,7 @@ public class Engine {
         if (counter == ROUNDS_COUNT) {
             System.out.printf(WIN_MSG_PATTERN, username);
         } else {
-            System.out.printf(LOSE_MSG_PATTERN, answer, array[0][1], username);
+            System.out.printf(LOSE_MSG_PATTERN, answer, array[counter][1], username);
         }
     }
 }
