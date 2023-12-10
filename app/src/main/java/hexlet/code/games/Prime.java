@@ -5,6 +5,7 @@ import hexlet.code.Utils;
 
 public class Prime {
     static final int MAX_RANDOM = 224;
+    static final int START_INDEX = 3;
 
     public static boolean isPrime(double n) {
         if (n <= 1 || n % 2 == 0) {
@@ -13,7 +14,7 @@ public class Prime {
         if (n == 2) {
             return true;
         }
-        for (int i = 3; i <= Math.sqrt(n); i += 2) {
+        for (int i = START_INDEX; i <= Math.sqrt(n); i += 2) {
             if (n % i == 0) {
                 return false;
             }
