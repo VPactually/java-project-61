@@ -42,22 +42,20 @@ public class Progression {
         int firstValue;
         String[] result = new String[Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER];
 
-        for (int i = 0; i < Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER; i += 2) {
 
-            firstValue = Utils.getRandomNumber(1, RANDOM_ZERO_ARRAY_ELEMENT);
-            step = Utils.getRandomNumber(1, MAX_RANDOM_FOR_SUM_PROGRESSION);
+        firstValue = Utils.getRandomNumber(1, RANDOM_ZERO_ARRAY_ELEMENT);
+        step = Utils.getRandomNumber(1, MAX_RANDOM_FOR_SUM_PROGRESSION);
 
-            var progression = generateProgression(ARRAY_LENGTH, step, firstValue);
-            var answer = getAnswerInProgression(progression);
-            var resultString = new StringBuilder();
+        var progression = generateProgression(ARRAY_LENGTH, step, firstValue);
+        var answer = getAnswerInProgression(progression);
+        var resultString = new StringBuilder();
 
-            for (int j = 0; j < ARRAY_LENGTH; j++) {
-                resultString.append(progression[j]).append(" ");
-            }
-
-            result[i] = resultString.toString();
-            result[i + 1] = Integer.toString(answer);
+        for (int j = 0; j < ARRAY_LENGTH; j++) {
+            resultString.append(progression[j]).append(" ");
         }
+
+        result[0] = resultString.toString();
+        result[1] = Integer.toString(answer);
         return result;
     }
 

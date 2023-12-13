@@ -24,15 +24,12 @@ public class Engine {
             System.out.print("Question: " + round[0] + "\nYour answer: ");
             answer = scanner.nextLine();
             if (!answer.equals(round[1])) {
-                break;
+                System.out.printf(LOSE_MSG_PATTERN, answer, array[counter][1], username);
+                return;
             }
             System.out.println("Correct!");
             counter++;
         }
-        if (counter == ROUNDS_COUNT) {
             System.out.printf(WIN_MSG_PATTERN, username);
-        } else {
-            System.out.printf(LOSE_MSG_PATTERN, answer, array[counter][1], username);
-        }
     }
 }

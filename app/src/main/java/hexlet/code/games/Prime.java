@@ -9,10 +9,7 @@ public class Prime {
 
     public static boolean isPrime(double n) {
         if (n <= 1 || n % 2 == 0) {
-            return false;
-        }
-        if (n == 2) {
-            return true;
+            return n == 2;
         }
         for (int i = START_INDEX; i <= Math.sqrt(n); i += 2) {
             if (n % i == 0) {
@@ -25,11 +22,9 @@ public class Prime {
     public static String[] generateRoundData() {
         int number;
         String[] result = new String[Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER];
-        for (int i = 0; i < Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER; i += 2) {
-            number = Utils.getRandomNumber(2, MAX_RANDOM);
-            result[i] = Integer.toString(number);
-            result[i + 1] = isPrime(number) ? "yes" : "no";
-        }
+        number = Utils.getRandomNumber(2, MAX_RANDOM);
+        result[0] = Integer.toString(number);
+        result[1] = isPrime(number) ? "yes" : "no";
         return result;
     }
 

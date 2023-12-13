@@ -21,13 +21,11 @@ public class Calc {
         String operator;
         int number1;
         int number2;
-        for (int i = 0; i < Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER; i += 2) {
-            number1 = Utils.getRandomNumber(0, MAX_RANDOM);
-            number2 = Utils.getRandomNumber(0, MAX_RANDOM);
-            operator = OPERATORS[Utils.getRandomNumber(OPERATORS.length - 1)];
-            result[i] = number1 + " " + operator + " " + number2;
-            result[i + 1] = Integer.toString(calculateCorrectAnswer(operator, number1, number2));
-        }
+        number1 = Utils.getRandomNumber(0, MAX_RANDOM);
+        number2 = Utils.getRandomNumber(0, MAX_RANDOM);
+        operator = OPERATORS[Utils.getRandomNumber(OPERATORS.length - 1)];
+        result[0] = number1 + " " + operator + " " + number2;
+        result[1] = Integer.toString(calculateCorrectAnswer(operator, number1, number2));
         return result;
     }
 

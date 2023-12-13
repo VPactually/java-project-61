@@ -13,11 +13,9 @@ public class Even {
     public static String[] generateRoundData() {
         int number;
         String[] result = new String[Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER];
-        for (int i = 0; i < Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER; i += 2) {
-            number = Utils.getRandomNumber(MAX_RANDOM);
-            result[i] = Integer.toString(number);
-            result[i + 1] = isEven(number) ? "yes" : "no";
-        }
+        number = Utils.getRandomNumber(MAX_RANDOM);
+        result[0] = Integer.toString(number);
+        result[1] = isEven(number) ? "yes" : "no";
         return result;
     }
 

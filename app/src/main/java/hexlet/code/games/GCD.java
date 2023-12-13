@@ -16,12 +16,10 @@ public class GCD {
         int number1;
         int number2;
         String[] result = new String[Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER];
-        for (int i = 0; i < Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER; i += 2) {
-            number1 = Utils.getRandomNumber(MIN_RANDOM, MAX_RANDOM);
-            number2 = Utils.getRandomNumber(MIN_RANDOM, MAX_RANDOM);
-            result[i] = number1 + " " + number2;
-            result[i + 1] = Integer.toString(getGcd(number1, number2));
-        }
+        number1 = Utils.getRandomNumber(MIN_RANDOM, MAX_RANDOM);
+        number2 = Utils.getRandomNumber(MIN_RANDOM, MAX_RANDOM);
+        result[0] = number1 + " " + number2;
+        result[1] = Integer.toString(getGcd(number1, number2));
         return result;
     }
 
