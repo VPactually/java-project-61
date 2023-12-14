@@ -16,23 +16,8 @@ public class Progression {
         for (int i = 0; i < size - 1; i++) {
             progression[i + 1] = progression[i] + step;
         }
-        int randomIndex = Utils.getRandomNumber(1, ARRAY_LENGTH - 1);
         for (int i = 0; i < size; i++) {
-            if (i == randomIndex) {
-                result[i] = "..";
-            } else {
-                result[i] = String.valueOf(progression[i]);
-            }
-        }
-        return result;
-    }
-
-    public static int getAnswerInProgression(String[] progression) {
-        int result = 0;
-        for (int i = 0; i < progression.length; i++) {
-            if (progression[i].equals("..")) {
-                return (Integer.parseInt(progression[i + 1]) + Integer.parseInt(progression[i - 1])) / 2;
-            }
+            result[i] = Integer.toString(progression[i]);
         }
         return result;
     }
@@ -40,22 +25,24 @@ public class Progression {
     public static String[] generateRoundData() {
         int step;
         int firstValue;
+        int hiddenNumber = Utils.getRandomNumber(1, ARRAY_LENGTH);
+        String answer;
+        String[] progression;
         String[] result = new String[Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER];
-
+        var resultString = new StringBuilder();
 
         firstValue = Utils.getRandomNumber(1, RANDOM_ZERO_ARRAY_ELEMENT);
         step = Utils.getRandomNumber(1, MAX_RANDOM_FOR_SUM_PROGRESSION);
+        progression = generateProgression(ARRAY_LENGTH, step, firstValue);
+        answer = progression[hiddenNumber];
+        progression[hiddenNumber] = "..";
 
-        var progression = generateProgression(ARRAY_LENGTH, step, firstValue);
-        var answer = getAnswerInProgression(progression);
-        var resultString = new StringBuilder();
-
-        for (int j = 0; j < ARRAY_LENGTH; j++) {
-            resultString.append(progression[j]).append(" ");
+        for (int i = 0; i < ARRAY_LENGTH; i++) {
+            resultString.append(progression[i]).append(" ");
         }
 
         result[0] = resultString.toString();
-        result[1] = Integer.toString(answer);
+        result[1] = answer;
         return result;
     }
 

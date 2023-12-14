@@ -30,6 +30,6 @@ public class Engine {
             System.out.println("Correct!");
             counter++;
         }
-            System.out.printf(WIN_MSG_PATTERN, username);
+        System.out.printf(WIN_MSG_PATTERN, username);
     }
 }
