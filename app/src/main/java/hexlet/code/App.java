@@ -25,11 +25,11 @@ public class App {
 
         switch (scanner.nextLine()) {
             case "1" -> Cli.greeting();
-            case "2" -> Even.startGame();
-            case "3" -> Calc.startGame();
-            case "4" -> GCD.startGame();
-            case "5" -> Progression.startGame();
-            case "6" -> Prime.startGame();
+            case "2" -> Even.startGameEven();
+            case "3" -> Calc.startGameCalc();
+            case "4" -> GCD.startGameGCD();
+            case "5" -> Progression.startGameProgression();
+            case "6" -> Prime.startGamePrime();
             default -> System.out.println("Good bye!");
         }
     }

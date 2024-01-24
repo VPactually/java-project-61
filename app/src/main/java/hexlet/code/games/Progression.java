@@ -46,7 +46,7 @@ public class Progression {
         return result;
     }
 
-    public static void startGame() {
+    public static void startGameProgression() {
         var array = new String[Engine.ROUNDS_COUNT][Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER];
         for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
             array[i] = generateRoundData();

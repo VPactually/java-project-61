@@ -6,6 +6,7 @@ import hexlet.code.Utils;
 public class GCD {
     static final int MAX_RANDOM = 224;
     static final int MIN_RANDOM = 2;
+    private final String name = "GCD";
 
     public static int getGcd(int a, int b) {
         int r = a % b;
@@ -23,7 +24,7 @@ public class GCD {
         return result;
     }
 
-    public static void startGame() {
+    public static void startGameGCD() {
         var array = new String[Engine.ROUNDS_COUNT][Engine.ARRAY_LENGTH_FOR_QUESTION_AND_ANSWER];
         for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
             array[i] = generateRoundData();
